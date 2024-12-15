@@ -25,16 +25,20 @@ export function Chat() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    const timer = setTimeout(() => {
+      if (scrollRef.current) {
+        // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        scrollRef.current?.scrollTo({ top: 200, behavior: "instant" });
+      }
+    }, 50); // Pequeno atraso para garantir que o DOM seja atualizado
+    return () => clearTimeout(timer);
   }, [messages]);
 
   return (
-    <Card className="w-[440px] border-cyan-400 bg-gradient-to-tr from-indigo-100 via-cyan-50 to-indigo-100 shadow-2xl shadow-cyan-600/90">
+    <Card className="w-[440px] border-white bg-gradient-to-tr from-violet-200 via-blue-50 to-cyan-50 shadow-2xl shadow-red-800/60">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <span className="font-extrabold text-cyan-900">
+          <span className="font-extrabold text-slate-950">
             Hire Me Assistant
           </span>
           <div>
@@ -44,7 +48,7 @@ export function Chat() {
               <Button
                 asChild
                 variant="outline"
-                className="border-cyan-900 text-cyan-900"
+                className="border-red-900 text-red-900"
               >
                 <a href="/sign-in" className="flex items-center gap-1">
                   <LogIn size={16} />
@@ -54,12 +58,16 @@ export function Chat() {
             )}
           </div>
         </CardTitle>
-        <CardDescription className="-mt-2 text-cyan-700">
+        <CardDescription className="-mt-2 text-slate-600/90">
           The AI-Powered Interview Experience
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[550px] w-full space-y-4 pb-4 pr-4">
+        <ScrollArea
+          type="always"
+          ref={scrollRef}
+          className="h-[550px] w-full space-y-4 pb-4 pr-4"
+        >
           {messages.map((message) => (
             <motion.div
               key={message.id}
@@ -92,11 +100,11 @@ export function Chat() {
         <form onSubmit={handleSubmit} className="flex w-full gap-2">
           <Input
             placeholder="How can I help you?"
-            className="border border-cyan-800/30 focus:border-cyan-500 focus:ring-cyan-500"
+            className="focus:border-red-5800 border border-red-800 focus:ring-red-800"
             value={input}
             onChange={handleInputChange}
           />
-          <Button type="submit" className="bg-cyan-950 hover:bg-cyan-900">
+          <Button type="submit" className="bg-red-950 hover:bg-red-950">
             {isLoading ? (
               <Loader2 className="animate-spin" />
             ) : (

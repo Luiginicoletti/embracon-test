@@ -5,7 +5,7 @@ export default async function Home() {
   void api.post.getMessages.prefetch();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-tr from-cyan-950 via-cyan-900 to-cyan-950">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-tr from-[#2f0502] via-black to-[#2f0502]">
       <Chat />
     </div>
   );
