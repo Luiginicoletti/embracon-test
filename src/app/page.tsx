@@ -2,12 +2,10 @@ import { Chat } from "~/components/Chat";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
   void api.post.getLatest.prefetch();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-cyan-950">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-tr from-cyan-950 via-cyan-900 to-cyan-950">
       <Chat />
     </div>
   );
