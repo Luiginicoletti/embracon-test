@@ -86,5 +86,5 @@ O projeto não funcionara sem o prisma db prush, o projeto tambem conta com uma 
 
 ---
 
-**Bom teste e obrigado por revisar o projeto!**
+**Bom teste e obrigado por revisar o projeto!!**
 
