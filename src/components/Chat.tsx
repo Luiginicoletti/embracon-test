@@ -17,6 +17,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import { useEffect, useRef } from "react";
 import { useUser, UserButton } from "@clerk/nextjs";
 import { Loader2, Send, LogIn } from "lucide-react";
+import Link from "next/link";
 
 export function Chat() {
   const { user, isSignedIn } = useUser();
@@ -50,10 +51,10 @@ export function Chat() {
                 variant="outline"
                 className="border-red-900 text-red-900"
               >
-                <a href="/sign-in" className="flex items-center gap-1">
+                <Link href="/sign-in" className="flex items-center gap-1">
                   <LogIn size={16} />
                   Login
-                </a>
+                </Link>
               </Button>
             )}
           </div>

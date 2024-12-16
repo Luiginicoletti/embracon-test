@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { streamText } from "ai";
 import { google } from "@ai-sdk/google";
 
